@@ -10,7 +10,7 @@
 ## Attributes
 ###### array *- List object - A sorted version of the array that was passed in*
 ###### target *- Int or Float - The target that was passed in*
-###### index *- Int - The index of the first occurance of target in sorted array*
+###### index *- Int - The index of the first occurance of target in sorted array. If there are no occurances, value = False*
 ###### l (lowercase L) *- Int - The number of occurances of target*
 ###### greater *- Int - Sum of elements greater than target*
 ###### lesser *- Int - Sum of elements smaller than target*
