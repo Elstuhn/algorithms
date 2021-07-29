@@ -41,6 +41,7 @@ def binarysearch(array : list, target): #target int or float
     
     rv.lesser = h  #amount of numbers lesser than target
     
+    return rv
             
 
 class search:
