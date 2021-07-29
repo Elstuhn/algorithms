@@ -3,6 +3,8 @@
 ###### binarysearch(array, target)
 *performs binarysearch on the specified array (doesn't need to be sorted) to search for **target** and returns a **search** object*
 
+
+
 # search Class
 
 ###### Attributes
@@ -15,6 +17,7 @@
 
 
 ###### Methods
+
 
 ###### Dunder Methods
 •**len** *- Int - returns sum of occurances of target*
