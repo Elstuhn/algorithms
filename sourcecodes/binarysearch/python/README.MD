@@ -16,8 +16,8 @@
 ###### lesser *- Int - Sum of elements smaller than target*
 
 
-###### Methods
+## Methods
 
 
-###### Dunder Methods
-•**len** *- Int - returns sum of occurances of target*
+## Dunder Methods
+###### len *- Int - returns sum of occurances of target*
