@@ -5,6 +5,8 @@ class ParameterError(Exception):
     pass
 
 def binarysearch(array : list, target): #target int or float
+    array.sort()
+    rv = search(array, target) #return value
     if not array:
         raise ParameterError("List cannot be empty")
     elif not (type(target) == int or type(target) == float):
@@ -15,9 +17,10 @@ def binarysearch(array : list, target): #target int or float
         for i in array:
             if i != target: break
             else: rv.l += 1
+        rv.lesser = 0
+        rv.greater = len(array)-rv.l
+        return rv
         
-    rv = search(array, target) #return value
-    array.sort()
     h = h2 = HI = len(array)-1 #the highest index of the array 
     l = mid = l2 = mid2 =0 #l = lowest (index)
     while l+1 != h:
@@ -37,6 +40,9 @@ def binarysearch(array : list, target): #target int or float
     else:
         rv.index = h #index of first instance of target
     rv.l = (l2-h)+1 #calculate instances of same number
+    if (rv.l == 0 and rv.index):
+        rv.l = 1
+        
     rv.greater = HI-l2 #amount of numbers greater than target
     
     rv.lesser = h  #amount of numbers lesser than target
