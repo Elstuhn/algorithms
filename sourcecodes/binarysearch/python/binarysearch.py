@@ -1,16 +1,24 @@
 import random
-import typing
+import typing as t
 
-class ParameterError(Exception):
-    pass
+class search:
+    def __init__(self, array, target):
+        self.array = array
+        self.target = target
+        self.index = 0 #the index of first instance of target
+        self.l = 0 #amount of targets in array
+    
+    def __len__(self):
+        return self.l
 
-def binarysearch(array : list, target): #target int or float
+Number = t.Union[int, float]
+def binarysearch(array : list[Number], target : Number):
     array.sort()
     rv = search(array, target) #return value
     if not array:
-        raise ParameterError("List cannot be empty")
-    elif not (type(target) == int or type(target) == float):
-        raise ParameterError("Target has to be either of type int or float")
+        raise ValueError("List cannot be empty")
+    elif not isinstance(target, (int, float)):
+        raise ValueError("Target has to be either of type int or float")
     elif array[0] == target:
         rv.index = 0
         rv.l = 0
@@ -18,14 +26,14 @@ def binarysearch(array : list, target): #target int or float
             if i != target: break
             else: rv.l += 1
         rv.lesser = 0
-        rv.greater = len(array)-rv.l
+        rv.greater = len(array) - rv.l
         return rv
         
-    h = h2 = HI = len(array)-1 #the highest index of the array 
-    l = mid = l2 = mid2 =0 #l = lowest (index)
+    h = h2 = HI = len(array) - 1 #the highest index of the array 
+    l = mid = l2 = mid2 = 0 #l = lowest (index)
     while l+1 != h:
-        mid = (h+l)//2
-        mid2 = (h2+l2)//2
+        mid = (h+l) // 2
+        mid2 = (h2+l2) // 2
         if array[mid] < target:
             l = mid
         else:
@@ -43,21 +51,10 @@ def binarysearch(array : list, target): #target int or float
     if (rv.l == 0 and rv.index):
         rv.l = 1
         
-    rv.greater = HI-l2 #amount of numbers greater than target
+    rv.greater = HI - l2 #amount of numbers greater than target
     
     rv.lesser = h  #amount of numbers lesser than target
     
     return rv
-            
-
-class search:
-    def __init__(self, array, target):
-        self.array = array
-        self.target = target
-        self.index = 0 #the index of first instance of target
-        self.l = 0 #amount of targets in array
-    
-    def __len__(self):
-        return self.l
-    
+         
      
