@@ -1,2 +1,2 @@
 # Programming Tools
-Tools for different uses (e.g algorithms, compounded processes)
+Computer science tools for different uses (e.g algorithms, compounded processes)
