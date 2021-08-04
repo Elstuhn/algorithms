@@ -16,28 +16,20 @@ class searched {
         
 };
 
-searched binarysearch(int array[], int target) 
+searched binarysearch(int array[], int size, int target) 
 {
-    int n = sizeof(array) / sizeof(array[0]);
-    cout << "the size of n is " << n << "\n";
-    if (n == 0) {
-        throw ParameterError();
-    } 
     searched rv;  // return value
-    sort(array, array+n);
-    for (int i = 0;i<n;i++) {
-        cout << array[i] << "\n";
-    }
+    sort(array, array+size);
     int l = 0;
     int mid = 0;
     int l2 = 0;
     int mid2 = 0;
-    int h = n-1; 
-    int h2 = n-1;
-    int HI = n-1;
+    int h = size-1; 
+    int h2 = size-1;
+    int HI = size-1;
     while (l+1 != h) {
-        mid = (l+h)/2;
-        mid2 = (l2+h2)/2;
+        mid = (l + h)/2;
+        mid2 = (l2 + h2)/2;
         if (array[mid] < target) {
             l = mid;
         } else {
@@ -54,8 +46,8 @@ searched binarysearch(int array[], int target)
     } else {
         rv.index = h;   
     }
-    rv.num = (l2-h)+1; //calculate instances of same number
-    rv.greater = HI-l2; //amount of numbers greater than target
+    rv.num = (l2 - h) + 1; //calculate instances of same number
+    rv.greater = HI - l2; //amount of numbers greater than target
     
     rv.smaller = h;
     return rv;
@@ -63,10 +55,17 @@ searched binarysearch(int array[], int target)
 int main()
 {
     ios_base::sync_with_stdio(false);
-    int test[7] = {1, 5, 2, 3, 7, 7, 2};
-    searched rv = binarysearch(test, 5);
-    cout << "ended" << "\n";
-    cout << rv.index << "\n";
-    cout << "outted index" << "\n";
-    cout << rv.num;
+    int size;
+    cout << "Enter the size of the array" << "\n";
+    cin >> size;
+    int arr[size];
+    int target;
+    int number;
+    for (int i = 0; i < size; i++) {
+        cout << "Enter the number in index " << i << "\n";
+        cin >> number;
+    }
+    cout << "Enter the number you want to find:" << "\n";
+    cin >> target;
+    searched rv = binarysearch(arr, size, target);
 }
