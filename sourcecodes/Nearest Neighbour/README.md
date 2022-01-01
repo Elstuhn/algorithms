@@ -1,1 +1,1 @@
-# A Nearest Neighbour algorithm for classifying images
+# A Nearest Neighbour classifier
