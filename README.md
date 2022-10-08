@@ -8,3 +8,4 @@ Computer science tools for different uses (e.g algorithms, compounded processes)
 - Make a readme describing the algorithm and share knowledge about it
 - Upload your code in the same folder
 - Create pull request
+- Remember to star the repository and drop a follow for the hacktoberfest-accepted tag :)
